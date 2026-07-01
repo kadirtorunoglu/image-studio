@@ -9,3 +9,7 @@ def resize_image(image_path, output_path, size):
 
 
     resized_image.show()
+
+def grayscale(image):
+    return image.convert("L")
+
