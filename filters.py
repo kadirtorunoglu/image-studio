@@ -1,3 +1,4 @@
+from PIL import ImageFilter
 from PIL import Image
 
 def rotate_image(input_path, output_path, angle):
@@ -18,4 +19,17 @@ def resize_image(image_path, output_path, size):
 
 def grayscale(image):
     return image.convert("L")
+  
+def blur(image):
+    """
+    Apply a blur filter to the given image.
+
+     Parameters:
+        image: PIL Image object
+
+    Returns:
+        Blurred PIL Image object
+    """
+    return image.filter(ImageFilter.BLUR)
+  
 

@@ -1,7 +1,7 @@
-
+from PIL import Image
+from filters import blur
 from filters import rotate_image
 from filters import resize_image
-from PIL import Image
 from filters import grayscale
 
 
@@ -18,6 +18,15 @@ rotate_image(
     output_path="output/gibbon_rotated.jpg",
     angle=180
 )
+
+# Load the image
+image = Image.open("images/photo.png")
+
+# Apply the blur filter
+blurred_image = blur(image)
+
+# Save the blurred image
+blurred_image.save("output/blurred_photo.png")
 
 print("Done!")
 
