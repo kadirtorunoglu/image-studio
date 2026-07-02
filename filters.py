@@ -1,6 +1,6 @@
 from PIL import ImageFilter
 from PIL import Image
-
+from PIL import ImageEnhance
 def grayscale(image):
     return image.convert("L")
 def rotate_image(input_path, output_path, angle):
@@ -32,4 +32,17 @@ def blur(image):
     return image.filter(ImageFilter.GaussianBlur(radius=8))
 
   
+def adjust_brightness(image,output,factor):
+   
 
+    enhancer = ImageEnhance.Brightness(image)
+
+    brightened_image = enhancer.enhance(factor)
+    brightened_image.save(output)
+    return brightened_image
+
+def flip_horizontal(image):
+    """
+    Flip image horizontally.
+    """
+    return image.transpose(Image.FLIP_LEFT_RIGHT)

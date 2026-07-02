@@ -4,6 +4,9 @@ from filters import resize_image
 from filters import rotate_image
 from filters import blur
 from utils import image_info
+from filters import adjust_brightness
+from filters import flip_horizontal
+
 
 img = Image.open("images/image.jpg")
 
@@ -29,9 +32,16 @@ blurred_image = blur(image)
 # Save the blurred image
 blurred_image.save("output/blurred_photo.png")
 
+adjusted_image = adjust_brightness(blurred_image, "output/adjusted_brightness.jpg", 1.5)
 
-blurred_image.show()
+
+
+
+img = Image.open("output/adjusted_brightness.jpg")
+
+flipped = flip_horizontal(img)
 
 image_info("images/image.jpg")
+flipped.save("output/flipped.jpg")
 
 print("Done!")
