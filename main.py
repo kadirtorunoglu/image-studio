@@ -3,6 +3,7 @@ from filters import grayscale
 from filters import resize_image
 from filters import rotate_image
 from filters import blur
+from utils import image_info
 from filters import adjust_brightness
 from filters import flip_horizontal
 
@@ -40,7 +41,7 @@ img = Image.open("output/adjusted_brightness.jpg")
 
 flipped = flip_horizontal(img)
 
+image_info("images/image.jpg")
 flipped.save("output/flipped.jpg")
 
 print("Done!")
-
