@@ -3,6 +3,8 @@ from filters import grayscale
 from filters import resize_image
 from filters import rotate_image
 from filters import blur
+from filters import adjust_brightness
+
 
 img = Image.open("images/image.jpg")
 
@@ -28,8 +30,10 @@ blurred_image = blur(image)
 # Save the blurred image
 blurred_image.save("output/blurred_photo.png")
 
+adjusted_image = adjust_brightness(blurred_image, "output/adjusted_brightness.jpg", 1.5)
 
-blurred_image.show()
+
+adjusted_image.show()
 
 
 print("Done!")
