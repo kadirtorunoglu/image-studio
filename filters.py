@@ -40,3 +40,9 @@ def adjust_brightness(image,output,factor):
     brightened_image = enhancer.enhance(factor)
     brightened_image.save(output)
     return brightened_image
+
+def flip_horizontal(image):
+    """
+    Flip image horizontally.
+    """
+    return image.transpose(Image.FLIP_LEFT_RIGHT)
