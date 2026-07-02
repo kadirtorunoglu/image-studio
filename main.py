@@ -6,6 +6,7 @@ from filters import blur
 from utils import image_info
 from filters import adjust_brightness
 from filters import flip_horizontal
+from filters import add_text_watermark
 
 
 img = Image.open("images/image.jpg")
@@ -35,13 +36,19 @@ blurred_image.save("output/blurred_photo.png")
 adjusted_image = adjust_brightness(blurred_image, "output/adjusted_brightness.jpg", 1.5)
 
 
+add_text_watermark(
+    input_path="output/adjusted_brightness.jpg",
+    output_path="output/watermarked_image.jpg",
+    text="Image Studio",
+    position=(20, 20),
+    font_size=40
+)
 
-
-img = Image.open("output/adjusted_brightness.jpg")
+img = Image.open("output/watermarked_image.jpg")
 
 flipped = flip_horizontal(img)
 
-image_info("images/image.jpg")
+image_info("output/watermarked_image.jpg")
 flipped.save("output/flipped.jpg")
 
 print("Done!")
