@@ -3,6 +3,7 @@ from filters import grayscale
 from filters import resize_image
 from filters import rotate_image
 from filters import blur
+from utils import image_info
 
 img = Image.open("images/image.jpg")
 
@@ -31,6 +32,6 @@ blurred_image.save("output/blurred_photo.png")
 
 blurred_image.show()
 
+image_info("images/image.jpg")
 
 print("Done!")
-
